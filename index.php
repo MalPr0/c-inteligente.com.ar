@@ -2,14 +2,13 @@
 include 'vendor/autoload.php';
 use PHPMailer;
 
-
 function sendMail()
 {
 	foreach ($_POST as $key => $value) {$$key = $value;}
 	if (empty($email) || empty($name) || empty($message)) {
+		
 		return "Por favor complete todos los campos.";
 	}
-
 	$mail = new PHPMailer;
 	$mail->isSMTP();
 	$mail->SMTPDebug = 0;
@@ -26,14 +25,13 @@ function sendMail()
 	$mail->Body = $message;
 	$mail->msgHTML = $message;
 	$mail->AltBody = $message;
-
 	if (!$mail->send()) {
-		return "En este momento no pudimos enviar su mensaje, reintente mas tarde o contactenos por otro medio.";
-	} else {
-		return "Su mensaje fue enviado!";
-	}
-}
 		
+		return "En este momento no pudimos enviar su mensaje, reintente mas tarde o contactenos por otro medio.";
+	}
+	
+	return "Su mensaje fue enviado!";
+}	
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -50,7 +48,6 @@ function sendMail()
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <body>
-
 <!-- Sidebar -->
 <section id="sidebar">
 	<div class="inner">
@@ -64,10 +61,8 @@ function sendMail()
 		</nav>
 	</div>
 </section>
-
 <!-- Wrapper -->
 <div id="wrapper">
-
 	<!-- Intro -->
 	<section id="intro" class="wrapper style1 fullscreen fade-up">
 		<div class="inner">
@@ -82,7 +77,6 @@ function sendMail()
 			</div>
 		</div>
 	</section>
-
 	<!-- One -->
 	<section id="one" class="wrapper style2 spotlights">
 		<section>
@@ -111,7 +105,6 @@ function sendMail()
 			</div>
 		</section>
 	</section>
-
 	<!-- Two -->
 	<section id="two" class="wrapper style3 fade-up">
 		<div class="inner">
@@ -154,7 +147,6 @@ function sendMail()
 			</ul>
 		</div>
 	</section>
-
 	<!-- Three -->
 	<section id="three" class="wrapper style1 fade-up">
 		<div class="inner">
@@ -193,9 +185,6 @@ function sendMail()
 						<li>
 							<h3>Social</h3>
 							<ul class="icons">
-								<!--li><a href="https://twitter.com/EguiMariano" class="fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.facebook.com/egui.mariano" class="fa-facebook"><span class="label">Facebook</span></a></li>
-								<li><a href="https://www.instagram.com/megui88" class="fa-instagram"><span class="label">Instagram</span></a></li-->
 								<li><a href="https://github.com/megui88" class="fa-github"><span class="label">GitHub</span></a></li>
 								<li><a href="https://ar.linkedin.com/in/eguimariano" class="fa-linkedin"><span class="label">LinkedIn</span></a></li>
 							</ul>
@@ -205,9 +194,7 @@ function sendMail()
 			</div>
 		</div>
 	</section>
-
 </div>
-
 <!-- Footer -->
 <footer id="footer" class="wrapper style1-alt">
 	<div class="inner">
@@ -216,7 +203,6 @@ function sendMail()
 		</ul>
 	</div>
 </footer>
-
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.scrollex.min.js"></script>
@@ -225,7 +211,7 @@ function sendMail()
 <script src="assets/js/util.js"></script>
 <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 <script src="assets/js/main.js"></script>
-<!--script>
+<script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -233,6 +219,6 @@ function sendMail()
 
 	ga('create', 'UA-12079959-5', 'auto');
 	ga('send', 'pageview');
-</script-->
+</script>
 </body>
 </html>
