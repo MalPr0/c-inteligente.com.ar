@@ -1,38 +1,3 @@
-<?php
-include 'vendor/autoload.php';
-use PHPMailer;
-
-function sendMail()
-{
-	foreach ($_POST as $key => $value) {$$key = $value;}
-	if (empty($email) || empty($name) || empty($message)) {
-		
-		return "Por favor complete todos los campos.";
-	}
-	$mail = new PHPMailer;
-	$mail->isSMTP();
-	$mail->SMTPDebug = 0;
-	$mail->Debugoutput = 'html';
-	$mail->Host = 'smtp.gmail.com';
-	$mail->Port = 587;
-	$mail->SMTPSecure = 'tls';
-	$mail->SMTPAuth = true;
-	$mail->Username = "no-reply@c-inteligente.com.ar";
-	$mail->setFrom('no-reply@c-inteligente.com.ar', 'Contacto Web');
-	$mail->addReplyTo($email, $name);
-	$mail->addAddress('megui@c-inteligente.com.ar', 'Mariano G. Egui');
-	$mail->Subject = "CI $name | " . substr($message, 0, 20) . "...";
-	$mail->Body = $message;
-	$mail->msgHTML = $message;
-	$mail->AltBody = $message;
-	if (!$mail->send()) {
-		
-		return "En este momento no pudimos enviar su mensaje, reintente mas tarde o contactenos por otro medio.";
-	}
-	
-	return "Su mensaje fue enviado!";
-}	
-?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -56,7 +21,6 @@ function sendMail()
 				<li><a href="#intro">Bienvenido</a></li>
 				<li><a href="#one">¿Quien somos?</a></li>
 				<li><a href="#two">¿Qúe hacemos?</a></li>
-				<li><a href="#three">Estar en contacto</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -140,56 +104,6 @@ function sendMail()
 					<span class="icon major fa-cloud"></span>
 					<h3>Cloud</h3>
 					<p>Los servicios Cloud garantizan disponibilidad y acceso desde cualquier lugar.</p>
-				</section>
-			</div>
-			<ul class="actions">
-				<li><a href="#three" class="button scrolly">Contactanos</a></li>
-			</ul>
-		</div>
-	</section>
-	<!-- Three -->
-	<section id="three" class="wrapper style1 fade-up">
-		<div class="inner">
-			<h2>Contacto</h2>
-			<?php echo $output = !empty($_POST)? '<p>' . sendMail() .'</p>' : ''; ?>
-			<div class="split style1">
-				<section>
-					<form method="post" action="/">
-						<div class="field half first">
-							<label for="name">Nombre</label>
-							<input type="text" name="name" id="name" />
-						</div>
-						<div class="field half">
-							<label for="email">Email</label>
-							<input type="text" name="email" id="email" />
-						</div>
-						<div class="field">
-							<label for="message">Mensaje</label>
-							<textarea name="message" id="message" rows="5"></textarea>
-						</div>
-						<ul class="actions">
-							<li><button type="submit" class="button submit">Enviar mensaje</button></li>
-						</ul>
-					</form>
-				</section>
-				<section>
-					<ul class="contact">
-						<li>
-							<h3>Email</h3>
-							<a href="#">megui@c-inteligente.com.ar</a>
-						</li>
-						<li>
-							<h3>Telefono</h3>
-							<span>(011) 15-6883-4923</span>
-						</li>
-						<li>
-							<h3>Social</h3>
-							<ul class="icons">
-								<li><a href="https://github.com/megui88" class="fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="https://ar.linkedin.com/in/eguimariano" class="fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							</ul>
-						</li>
-					</ul>
 				</section>
 			</div>
 		</div>
