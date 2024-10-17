@@ -21,6 +21,7 @@
 				<li><a href="#intro">Bienvenido</a></li>
 				<li><a href="#one">¿Quien somos?</a></li>
 				<li><a href="#two">¿Qúe hacemos?</a></li>
+				<li><a href="#contact">Contacto</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -106,6 +107,16 @@
 					<p>Los servicios Cloud garantizan disponibilidad y acceso desde cualquier lugar.</p>
 				</section>
 			</div>
+		</div>
+	</section>
+	<!-- Contact -->
+	<section id="contact" class="wrapper style1 fade-up">
+		<div class="inner">
+			<h2>Contacto</h2>
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://www.github.com" class="icon fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
 		</div>
 	</section>
 </div>
